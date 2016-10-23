@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        form {
+            width: 400px;
+        }
+        
+        input[type=submit] {
+            border: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form action="" name="myForm" id="myForm">
+        <input type="text" placeholder="訂購人姓名" id="name">
+        <input type="text" placeholder="訂購數量" id="ip7num" onchange="updatePrice()">
+        <select name="size" id="size" onchange="updatePrice()">
+            <option value="32G">32G</option>
+            <option value="128G">128G</option>
+            <option value="256G">256G</option>
+        </select>
+        <input type="text" placeholder="總計" id="Total">
+        <input type="submit" value="預購">
+
+    </form>
+    <script>
+        function updatePrice() {
+            var ip7_32 = 24900;
+            var ip7_128 = 28900;
+            var ip7_256 = 32900;
+            var name = myForm.name.value;
+            var ip7num = myForm.ip7num.value;
+            var size = myForm.size.value;
+            //var total = ip7 * ip7num;
+        //    if (size == "32G") {
+         //       var total = ip7_32 * ip7num;
+         //   }
+        //else if (size == "128G") {
+         //       var total = ip7_128 * ip7num;
+         //   } else if (size == "256G") {
+         //       var total = ip7_256 * ip7num;
+        switch(size){
+            case "32G":
+                var total = ip7_32 * ip7num;
+                break;
+            case "128G":
+                var total = ip7_128 * ip7num;
+                break;
+            case "256G":
+                var total = ip7_256 * ip7num;
+                break;
+      
+        }
+                
+            myForm.Total.value = total;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
